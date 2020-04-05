@@ -1,6 +1,6 @@
 # README #
 
-#Run#
+##  Run ##
 
 >make
 
@@ -10,7 +10,7 @@ with file.cfg being the needed file to translate to Versat
 
 
 
-#Timeline#
+##  Timeline ##
 
 Without using Versat
 
