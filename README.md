@@ -1,29 +1,31 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+#Run#
 
-### What is this repository for? ###
+>make
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+>./iob-cfg2versat file.cfg
 
-### How do I get set up? ###
+with file.cfg being the needed file to translate to Versat
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
 
-### Contribution guidelines ###
 
-* Writing tests
-* Code review
-* Other guidelines
+#Timeline#
 
-### Who do I talk to? ###
+Without using Versat
 
-* Repo owner or admin
-* Other community or team contact
+-Parse CFG to Embedded CPU code (and then to be ran on Versat)- Done for Yolo and Tiny Yolo CFG layers
+
+-Adapt "YoloLite" Project into "DarknetLite", able to run all layers on embedded CPUs with static memory
+
+-Run iob-cfg2versat and DarknetLite on Desktop 
+
+
+With Versat
+
+-Testing acceleration of 1 layer (convolutional)
+
+-Do Yolo and Tiny Yolo CFG layer  Acceleration
+
+-Extend to all CFG layers
+
