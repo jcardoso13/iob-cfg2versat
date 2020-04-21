@@ -2,12 +2,12 @@
 
 int main(int argc, char** argv)
 {
-    if(argc<2 || argc>3)
+    if(argc!=2)
         {
         printf("1 (.cfg) or (.prototxt) file should be inserted as Input\n");
         exit(1);
         }
-    if(strlen(argv[1])<4)
+    if(strlen(argv[1])<strlen(".cfg"))
         exit(1);
 
     char* point=&(argv[1][strlen(argv[1])-strlen(".cfg")]);
