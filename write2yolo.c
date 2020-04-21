@@ -5,6 +5,7 @@
 void write_generic_layer(FILE*yoloc,int i,layer darknet_layer)
 {
 //generic
+    fprintf(yoloc,"/*GENERIC PARAMS*/\n");
     fprintf(yoloc,"[%d].type=%d,\t\t[%d].activation=%d,\t\t[%d].batch_normalize=%d,\t\t[%d].batch=%d,\n", 
             i, darknet_layer.type,       i, darknet_layer.activation,   i, darknet_layer.batch_normalize,     i, darknet_layer.batch);
         //with nweights
@@ -42,7 +43,6 @@ fprintf(yoloc,"weights_%d[%d]={0}, biases_%d[%d]={0}, r_mean_%d[%d]={0}, r_varia
 void write_convolutional_layer2(FILE* yoloc,int i,layer darknet_layer)
 {
 fprintf(yoloc,"/*Layer %d-CONVOLUTIONAL*/\n",i);
-
         fprintf(yoloc,"[%d].forward=forward_convolutional_layer,\n", i);
         fprintf(yoloc,"[%d].mask=0,\n", i);
         fprintf(yoloc,"[%d].input_layers=0,\t\t\t\t[%d].input_sizes=0,\n", i, i);
@@ -126,12 +126,12 @@ void write_yolo_layer1(FILE* yoloc,int i,layer darknet_layer)
         fixed_t biases=0;
         fprintf(yoloc,"/*Layer %d-YOLO*/\n",i);
         fprintf(yoloc,"fixed_t output_%d[%d]={0}, biases_%d[%d]={", i, darknet_layer.outputs, i, 2*darknet_layer.total);
-        for(j=0;j<darknet_layer.total-1;j++)
+        for(j=0;j<2*darknet_layer.total-1;j++)
         {
                 biases=darknet_layer.biases[j]*FIXED16;
                 fprintf(yoloc,"%d,",biases);
         }
-        biases=darknet_layer.biases[darknet_layer.total-1]*FIXED16;
+        biases=darknet_layer.biases[2*darknet_layer.total-1]*FIXED16;
         fprintf(yoloc,"%d};\n",biases);
         fprintf(yoloc,"int mask_%d[%d]={",i,darknet_layer.n);
         for(j=0;j<darknet_layer.n-1;j++)
