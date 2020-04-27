@@ -23,11 +23,11 @@ void parseDarknet(char* filename)
         if (cur.workspace_size > workspace_size) workspace_size = cur.workspace_size;
         switch (cur.type)
         {
-        case CONVOLUTIONAL:write_convolutional_layer1(yoloc,i,cur);
+        case CONVOLUTIONAL:write_convolutional_IO(yoloc,i,cur);
             break;
-        case CONNECTED:write_connected_layer(yoloc,i,cur);
+        case CONNECTED:write_connected_IO(yoloc,i,cur);
             break;
-        case MAXPOOL:write_maxpool_layer(yoloc,i,cur);
+        case MAXPOOL:write_maxpool_IO(yoloc,i,cur);
             break;
         case DROPOUT:write_dropout_layer(yoloc,i,cur);
             break;
@@ -35,15 +35,15 @@ void parseDarknet(char* filename)
             break;
         case AVGPOOL:write_avgpool_layer(yoloc,i,cur);
             break;
-        case SHORTCUT:write_shortcut_layer1(yoloc,i,cur);
+        case SHORTCUT:write_shortcut_IO(yoloc,i,cur);
             break;
-        case ROUTE:write_route_layer1(yoloc,i,cur);
+        case ROUTE:write_route_IO(yoloc,i,cur);
             break;
         case RNN:write_rnn_layer(yoloc,i,cur);
             break;
-        case YOLO:write_yolo_layer1(yoloc,i,cur);
+        case YOLO:write_yolo_IO(yoloc,i,cur);
             break;
-        case UPSAMPLE:write_upsample_layer1(yoloc,i,cur);
+        case UPSAMPLE:write_upsample_IO(yoloc,i,cur);
             break;
         // Other layers needed to be adressed
         case GRU:
@@ -63,11 +63,11 @@ void parseDarknet(char* filename)
         write_generic_layer(yoloc,i,cur);
         switch (cur.type)
         {
-        case CONVOLUTIONAL:write_convolutional_layer2(yoloc,i,cur);
+        case CONVOLUTIONAL:write_convolutional_params(yoloc,i,cur);
             break;
-        case CONNECTED:write_connected_layer(yoloc,i,cur);
+        case CONNECTED:write_connected_params(yoloc,i,cur);
             break;
-        case MAXPOOL:write_maxpool_layer(yoloc,i,cur);
+        case MAXPOOL:write_maxpool_params(yoloc,i,cur);
             break;
         case DROPOUT:write_dropout_layer(yoloc,i,cur);
             break;
@@ -75,15 +75,15 @@ void parseDarknet(char* filename)
             break;
         case AVGPOOL:write_avgpool_layer(yoloc,i,cur);
             break;
-        case SHORTCUT:write_shortcut_layer2(yoloc,i,cur);
+        case SHORTCUT:write_shortcut_params(yoloc,i,cur);
             break;
-        case ROUTE:write_route_layer2(yoloc,i,cur);
+        case ROUTE:write_route_params(yoloc,i,cur);
             break;
         case RNN:write_rnn_layer(yoloc,i,cur);
             break;
-        case YOLO:write_yolo_layer2(yoloc,i,cur);
+        case YOLO:write_yolo_params(yoloc,i,cur);
             break;
-        case UPSAMPLE:write_upsample_layer2(yoloc,i,cur);
+        case UPSAMPLE:write_upsample_params(yoloc,i,cur);
             break;
         // Other layers needed to be adressed
         case GRU:
