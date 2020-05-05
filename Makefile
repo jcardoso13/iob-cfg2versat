@@ -4,7 +4,7 @@ ALIB=./libdarknet.a
 SLIB=
 OBJDIR=../darknet/obj/
 COMMON= -Iinclude/ -Isrc/
-CFLAGS=-Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC
+CFLAGS=-Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -std=c99
 LDFLAGS= -lm -pthread 
 
 # compiler flags:
@@ -17,8 +17,8 @@ all: $(TARGET) $(OBJDIR)
 $(TARGET):app.c parse2compiler.c write2yolo.c iob-cfg2versat.h $(ALIB)
 	$(CC) $(CFLAGS) -o iob-cfg2versat app.c parse2compiler.c write2yolo.c $(ALIB) $(LDFLAGS)
 
-$(OBJDIR)%.o: %.c $(DEPS)
-	$(CC) $(COMMON) $(CFLAGS) -c $< -o $@
+#$(OBJDIR)%.o: %.c $(DEPS)
+#	$(CC) $(COMMON) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(TARGET)
