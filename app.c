@@ -22,6 +22,7 @@ int main(int argc, char** argv)
     }
     if(cond1==true) 
     {
+        printf("Parsing .cfg to Versat\n");
         parseDarknet(argv[1]);
     }
     if(cond2==true)

@@ -10,7 +10,7 @@ void parseDarknet(char* filename)
     int workspace_size=0;
     int outputs=0;
     uint64_t base=0;
-    FILE* yoloc=fopen("../DarknetLite/src/yolo.c","w");
+    FILE* yoloc=fopen("../darknet-lite/src/yolo.c","w");
     //FILE* yoloc=fopen("./yolo.c","w");
     fprintf(yoloc,"#include \"../include/darknet.h\"\n");
     net=parse_network_cfg(filename);

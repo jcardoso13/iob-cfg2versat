@@ -223,7 +223,7 @@ void write_maxpool_params(FILE* yoloc,int i,layer darknet_layer)
 {
         //maxpool
         fprintf(yoloc,"/*Layer %d-MAXPOOL*/\n",i);
-        fprintf(yoloc,"[%d].forward=forward_maxpool_layer;\n", i);
+        fprintf(yoloc,"g_layers[%d].forward=forward_maxpool_layer;\n", i);
 
 
 }
